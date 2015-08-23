@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="skE-Ki-6N5">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="DC6-a0-Yl1">
+            <objects>
+                <viewController id="skE-Ki-6N5" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="H3M-FD-wyN"/>
+                        <viewControllerLayoutGuide type="bottom" id="VL3-HI-FlE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lIU-71-keb">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dp9-uc-D3A" userLabel="Orange Header">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                                <color key="backgroundColor" red="0.96470588239999999" green="0.45882352939999999" blue="0.10980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="vTS-Br-7NW"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ltI-3L-y7g" userLabel="Black View">
+                                <rect key="frame" x="0.0" y="60" width="320" height="320"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ltI-3L-y7g" secondAttribute="height" multiplier="1:1" id="ika-DO-ED1"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="ika-DO-ED1"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Icf-Ra-8uu" userLabel="White View">
+                                <rect key="frame" x="0.0" y="380" width="320" height="188"/>
+                                <color key="backgroundColor" red="0.12941176470588237" green="0.13725490196078433" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" priority="750" constant="140" id="UyO-mg-T5Z"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ltI-3L-y7g" firstAttribute="top" secondItem="dp9-uc-D3A" secondAttribute="bottom" id="3kA-A5-dUs"/>
+                            <constraint firstItem="Icf-Ra-8uu" firstAttribute="top" secondItem="ltI-3L-y7g" secondAttribute="bottom" id="7rv-26-qcM"/>
+                            <constraint firstItem="dp9-uc-D3A" firstAttribute="top" secondItem="lIU-71-keb" secondAttribute="top" id="DzR-0F-584"/>
+                            <constraint firstItem="ltI-3L-y7g" firstAttribute="top" secondItem="H3M-FD-wyN" secondAttribute="bottom" constant="40" id="KqR-Jx-xIK"/>
+                            <constraint firstItem="ltI-3L-y7g" firstAttribute="top" secondItem="dp9-uc-D3A" secondAttribute="bottom" id="OOS-cr-5au"/>
+                            <constraint firstAttribute="trailing" secondItem="Icf-Ra-8uu" secondAttribute="trailing" id="Qyk-g2-fJM"/>
+                            <constraint firstAttribute="bottom" secondItem="Icf-Ra-8uu" secondAttribute="bottom" id="RRc-2Q-nsa"/>
+                            <constraint firstItem="Icf-Ra-8uu" firstAttribute="top" secondItem="ltI-3L-y7g" secondAttribute="bottom" constant="-46" id="ZWa-2Z-7zi"/>
+                            <constraint firstItem="ltI-3L-y7g" firstAttribute="width" secondItem="ltI-3L-y7g" secondAttribute="height" multiplier="1:1" id="gp6-Hn-XQC"/>
+                            <constraint firstAttribute="trailing" secondItem="dp9-uc-D3A" secondAttribute="trailing" id="jER-rt-UUN"/>
+                            <constraint firstItem="Icf-Ra-8uu" firstAttribute="leading" secondItem="lIU-71-keb" secondAttribute="leading" id="qAn-Tj-8Gg"/>
+                            <constraint firstAttribute="trailing" secondItem="ltI-3L-y7g" secondAttribute="trailing" id="ulM-Xj-3KI"/>
+                            <constraint firstItem="ltI-3L-y7g" firstAttribute="leading" secondItem="lIU-71-keb" secondAttribute="leading" id="yLU-Hm-2HX"/>
+                            <constraint firstItem="dp9-uc-D3A" firstAttribute="leading" secondItem="lIU-71-keb" secondAttribute="leading" id="zcb-7P-uA3"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="KqR-Jx-xIK"/>
+                                <exclude reference="OOS-cr-5au"/>
+                                <exclude reference="ZWa-2Z-7zi"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ru4-1d-SNs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="22" y="499"/>
+        </scene>
+    </scenes>
+</document>

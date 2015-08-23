@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scheme
+   LastUpgradeVersion = "0630"
+   version = "1.7">
+   <BuildAction
+      parallelizeBuildables = "YES"
+      buildImplicitDependencies = "YES">
+      <BuildActionEntries>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "64E6D34B1AE28B9900965CAA"
+               BuildableName = "msgur.app"
+               BlueprintName = "msgur"
+               ReferencedContainer = "container:msgur.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "64E6D3601AE28B9900965CAA"
+               BuildableName = "msgurTests.xctest"
+               BlueprintName = "msgurTests"
+               ReferencedContainer = "container:msgur.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+      </BuildActionEntries>
+   </BuildAction>
+   <TestAction
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      buildConfiguration = "Debug">
+      <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "64E6D3601AE28B9900965CAA"
+               BuildableName = "msgurTests.xctest"
+               BlueprintName = "msgurTests"
+               ReferencedContainer = "container:msgur.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+      </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "64E6D34B1AE28B9900965CAA"
+            BuildableName = "msgur.app"
+            BlueprintName = "msgur"
+            ReferencedContainer = "container:msgur.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
+   </TestAction>
+   <LaunchAction
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      launchStyle = "0"
+      useCustomWorkingDirectory = "NO"
+      buildConfiguration = "Debug"
+      ignoresPersistentStateOnLaunch = "NO"
+      debugDocumentVersioning = "YES"
+      allowLocationSimulation = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "64E6D34B1AE28B9900965CAA"
+            BuildableName = "msgur.app"
+            BlueprintName = "msgur"
+            ReferencedContainer = "container:msgur.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
+      <AdditionalOptions>
+      </AdditionalOptions>
+   </LaunchAction>
+   <ProfileAction
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      savedToolIdentifier = ""
+      useCustomWorkingDirectory = "NO"
+      buildConfiguration = "Release"
+      debugDocumentVersioning = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "64E6D34B1AE28B9900965CAA"
+            BuildableName = "msgur.app"
+            BlueprintName = "msgur"
+            ReferencedContainer = "container:msgur.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
+   </ProfileAction>
+   <AnalyzeAction
+      buildConfiguration = "Debug">
+   </AnalyzeAction>
+   <ArchiveAction
+      buildConfiguration = "Release"
+      revealArchiveInOrganizer = "YES">
+      <PostActions>
+         <ExecutionAction
+            ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
+            <ActionContent
+               title = "Run Script"
+               scriptText = "AVAILABILITY=&quot;12_hours&quot; #10_minutes, 1_hour, 3_hours, 6_hours, 12_hours, 24_hours, forever&#10;TMP_FILE_PATH=&quot;/tmp/${PRODUCT_NAME}.ipa&quot;&#10;GROWL=&quot;${HOME}/bin/growlnotify -a Xcode -w&quot;&#10;&#10;osascript -e &apos;display notification &quot;Creating .ipa for &apos;${PRODUCT_NAME}&apos;&quot; with title &quot;Riviera Build&quot;&apos;&#10;xcrun -sdk iphoneos PackageApplication &quot;$ARCHIVE_PRODUCTS_PATH/$INSTALL_PATH/$WRAPPER_NAME&quot; -o &quot;${TMP_FILE_PATH}&quot;&#10;&#10;osascript -e &apos;display notification &quot;Uploading .ipa to RivieraBuild&quot; with title &quot;Riviera Build&quot;&apos;&#10;OUTPUT=$(/usr/bin/curl &quot;https://apps.rivierabuild.com/upload&quot; -F file=@&quot;${TMP_FILE_PATH}&quot; -F availability=&quot;${AVAILABILITY}&quot;)&#10;URL=$(echo $OUTPUT | python -m json.tool | sed -n -e &apos;/&quot;file_url&quot;:/ s/^.*&quot;\(.*\)&quot;.*/\1/p&apos;)&#10;&#10;echo $URL | pbcopy&#10;osascript -e &apos;display notification &quot;Copied to clipboard: &apos;$URL&apos;&quot; with title &quot;Riviera Build&quot;&apos;&#10;open $URL">
+               <EnvironmentBuildable>
+                  <BuildableReference
+                     BuildableIdentifier = "primary"
+                     BlueprintIdentifier = "64E6D34B1AE28B9900965CAA"
+                     BuildableName = "msgur.app"
+                     BlueprintName = "msgur"
+                     ReferencedContainer = "container:msgur.xcodeproj">
+                  </BuildableReference>
+               </EnvironmentBuildable>
+            </ActionContent>
+         </ExecutionAction>
+      </PostActions>
+   </ArchiveAction>
+</Scheme>
