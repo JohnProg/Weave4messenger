@@ -1,5 +1,6 @@
 Breakpoints_v2.xcbkptlist
 Expressions.xcexplist
 xcschememanagement.plist
-
 *.xcuserstate
+Pods/*
+Podfile.lock
