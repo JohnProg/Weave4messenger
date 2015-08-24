@@ -1,4 +1,4 @@
-# Weave4messenger
+# Weave for Messenger
 
 A one of my first indie projects.
 
