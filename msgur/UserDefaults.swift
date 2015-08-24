@@ -21,19 +21,15 @@ class UserDefaults {
     }
     
     private var refreshRemoteConfigMade = false
-    func refreshRemoteConfig()
-    {
+    func refreshRemoteConfig() {
         if refreshRemoteConfigMade { return }
         println("CONFIG refresh")
         PFConfig.getConfigInBackgroundWithBlock { (_, error) -> Void in
-            if error == nil
-            {
+            if error == nil {
                 println("CONFIG fetched")
                 self.refreshRemoteConfigMade = true
                 self.config = PFConfig.currentConfig()
-            }
-            else
-            {
+            } else {
                 Analytics.track("err_configFetch")
             }
         }
@@ -79,103 +75,52 @@ class UserDefaults {
     
     var learnMorePageUrl: String {
         get {
-            if let value = config["learnMorePageUrl"] as? String
-            {
-                return value
-            }
-            return "http://facebook.com/weave4messenger"
+            return config[__FUNCTION__] as? String ?? "http://facebook.com/weave4messenger"
         }
     }
     var inviteUrl: String {
         get {
-            if let value = config["inviteUrl"] as? String
-            {
-                return value
-            }
-            return "https://fb.me/1625093717704137"
+            return config[__FUNCTION__] as? String ?? "https://fb.me/1625093717704137"
         }
     }
 //    var xxx: Int {
 //        get {
-//            if let value = config["xxx"] as? Int
-//            {
-//                return value
-//            }
-//            return yyy
+//            return config[__FUNCTION__] as? Int ?? yyy
 //        }
 //    }
     var fbOverrideContextTimeout: Double {
         get {
-            println(__FUNCTION__)
-            if let value = config["fbOverrideContextTimeout"] as? NSNumber
-            {
-                println(value)
-                return value.doubleValue
-            }
-            return 900.0
+            return (config[__FUNCTION__] as? NSNumber)?.doubleValue ?? 900.0
         }
     }
     var armchairSendsUntilPrompt: UInt {
         get {
-            if let value = config["armchairSendsUntilPrompt"] as? UInt
-            {
-                return value
-            }
-            return 7
+            return config[__FUNCTION__] as? UInt ?? 7
         }
     }
     var armchairDaysUntilPrompt: UInt {
         get {
-            if let value = config["armchairDaysUntilPrompt"] as? UInt
-            {
-                return value
-            }
-            return 0
+            return config[__FUNCTION__] as? UInt ?? 0
         }
     }
     var armchairUsesUntilPrompt: UInt {
         get {
-            if let value = config["armchairUsesUntilPrompt"] as? UInt
-            {
-                return value
-            }
-            return 0
+            return config[__FUNCTION__] as? UInt ?? 0
         }
     }
     var adsStartCount: Int {
         get {
-            if let value = config["adsStartCount"] as? Int
-            {
-                return value
-            }
-            return 12
+            return config[__FUNCTION__] as? Int ?? 12
         }
     }
     var adsInterstitialShowAfterPlayerRepeat: Int {
         get {
-            if let value = config["adsInterstitialShowAfterPlayerRepeat"] as? Int
-            {
-                return value
-            }
-            return 2
+            return config[__FUNCTION__] as? Int ?? 2
         }
     }
     var adsInterstitialsBetweenShows: Int {
         get {
-            if let value = config["adsInterstitialsBetweenShows"] as? Int
-            {
-                return value
-            }
-            return 1
-        }
-    }
-    var debugTest: String {
-        get {
-            if let value = config["debugTest"] as? String
-            {
-                return value
-            }
-            return "NOT INITIALIZED"
+            return config[__FUNCTION__] as? Int ?? 1
         }
     }
     
@@ -187,18 +132,14 @@ class UserDefaults {
     var lastColor: UIColor {
         get {
             let index = userDefs.integerForKey(lastColorKey)        // 0 if not exists
-            if index >= colorPalette.startIndex && index <= colorPalette.endIndex
-            {
+            if index >= colorPalette.startIndex && index <= colorPalette.endIndex {
                 return colorPalette[index]
-            }
-            else
-            {
+            } else {
                 return colorPalette[0]
             }
         }
         set {
-            if let i = find(colorPalette, newValue)
-            {
+            if let i = find(colorPalette, newValue) {
                 userDefs.setInteger(i, forKey: lastColorKey)
             }
         }

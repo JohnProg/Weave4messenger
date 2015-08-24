@@ -8,8 +8,7 @@
 
 import UIKit
 
-protocol ColorSelectControllerDelegate
-{
+protocol ColorSelectControllerDelegate {
     func colorSelected(color: UIColor)
 }
 
@@ -21,16 +20,14 @@ class ColorSelectController: UIViewController {
     
     var selectedColor: UIColor?
     
-    override func viewDidLoad()
-    {
+    override func viewDidLoad() {
         super.viewDidLoad()
 
         buttons.sort { (b1, b2) -> Bool in
             return b1.tag < b2.tag
         }
         
-        for (i, button) in enumerate(buttons)
-        {
+        for (i, button) in enumerate(buttons) {
             let c = UserDefaults.shared.colorPalette[i]
             button.backgroundColor = c
             button.layer.cornerRadius = 20
@@ -41,13 +38,10 @@ class ColorSelectController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    override func viewDidAppear(animated: Bool)
-    {
+    override func viewDidAppear(animated: Bool) {
         animate(true, completion: nil)
-        for (i,c) in enumerate(UserDefaults.shared.colorPalette)
-        {
-            if c.isEqual(self.selectedColor)
-            {
+        for (i,c) in enumerate(UserDefaults.shared.colorPalette) {
+            if c.isEqual(self.selectedColor) {
                 self.selectButton(i)
             }
         }
@@ -58,8 +52,7 @@ class ColorSelectController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    func selectButton(id: Int)
-    {
+    func selectButton(id: Int) {
         UIView.animateWithDuration(0.5, delay: 0.0, options: .AllowUserInteraction, animations: { () -> Void in
             self.buttons[id].transform = CGAffineTransformMakeScale(0.8, 0.8)
         }, completion: { (_) -> Void in
@@ -69,38 +62,29 @@ class ColorSelectController: UIViewController {
         })
     }
 
-    func moveOffStage()
-    {
+    func moveOffStage() {
         let t: [CGFloat] = [300, 150, 50]
-        for i in 0...2
-        {
+        for i in 0...2 {
             self.buttons[i].transform = CGAffineTransformMakeTranslation(-t[i], 0)
             self.buttons[i].alpha = 0
         }
-        for i in 3...5
-        {
+        for i in 3...5 {
             self.buttons[i].transform = CGAffineTransformMakeTranslation(t[i-3], 0)
             self.buttons[i].alpha = 0
         }
     }
 
-    func moveOnStage()
-    {
+    func moveOnStage() {
         for i in 0...2 { self.buttons[i].transform = CGAffineTransformIdentity; self.buttons[i].alpha = 1 }
         for i in 3...5 { self.buttons[i].transform = CGAffineTransformIdentity; self.buttons[i].alpha = 1 }
 
     }
     
-    func animate(appearing: Bool, completion: (()->())?)
-    {
-        UIView.animateWithDuration(0.5, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.5, options: .AllowUserInteraction, animations:
-        {
-            if appearing
-            {
+    func animate(appearing: Bool, completion: (()->())?) {
+        UIView.animateWithDuration(0.5, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.5, options: .AllowUserInteraction, animations: {
+            if appearing {
                 self.moveOnStage()
-            }
-            else
-            {
+            } else {
                 self.moveOffStage()
             }
         }, completion: { (_) in completion?() })
@@ -120,19 +104,14 @@ class ColorSelectController: UIViewController {
     }
     */
 
-    @IBAction func buttonTap(sender: UIButton)
-    {
+    @IBAction func buttonTap(sender: UIButton) {
         let id = sender.tag
         self.view.bringSubviewToFront(sender)
         UIView.animateWithDuration(0.2, animations: { () -> Void in
-            for button in self.buttons
-            {
-                if button.tag == sender.tag
-                {
+            for button in self.buttons {
+                if button.tag == sender.tag {
                     button.transform = CGAffineTransformMakeScale(15.0, 15.0)
-                }
-                else
-                {
+                } else {
                     button.alpha = 0.0
                 }
             }

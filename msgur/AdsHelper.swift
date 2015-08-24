@@ -16,75 +16,47 @@ class AdsHelper: NSObject {
     
     var interstitialCurrent = 1
     
-    private override init()
-    {
+    private override init() {
         super.init()
     }
     
-    func amIallowedToShowAds() -> Bool
-    {
-        if UserDefaults.shared.videosSent < UserDefaults.shared.adsStartCount
-        {
+    func amIallowedToShowAds() -> Bool {
+        if UserDefaults.shared.videosSent < UserDefaults.shared.adsStartCount {
             println("AD I'm not allowed to show it yet")
             return false
         }
         return true
     }
     
-    func preloadInterstitial()
-    {
+    func preloadInterstitial() {
         if !amIallowedToShowAds() { return }
-        if interstitialCurrent >= UserDefaults.shared.adsInterstitialsBetweenShows
-        {
+        if interstitialCurrent >= UserDefaults.shared.adsInterstitialsBetweenShows {
             println("AD preloading interstitial")
             interstitial = GADInterstitial(adUnitID: UserDefaults.shared.admobInterstitialId)
             let request = GADRequest()
             interstitial?.loadRequest(request)
-        }
-        else
-        {
+        } else {
             println("AD skipping preloading")
         }
     }
     
-    func showInterstitial(vc: UIViewController, doIfShowing: (()->())?)
-    {
+    func showInterstitial(vc: UIViewController, doIfShowing: (()->())?) {
         if !amIallowedToShowAds() { return }
-        if interstitialCurrent >= UserDefaults.shared.adsInterstitialsBetweenShows
-        {
-            if interstitial!.isReady
-            {
+        if interstitialCurrent >= UserDefaults.shared.adsInterstitialsBetweenShows {
+            if interstitial!.isReady {
                 println("AD showing interstitial")
                 doIfShowing?()
                 interstitial?.presentFromRootViewController(vc)
                 interstitialCurrent = 0
-            }
-            else
-            {
+            } else {
                 Analytics.track("ad_wasnt_ready")
                 println("AD has to be shown, but wasn't ready")
             }
-        }
-        else
-        {
+        } else {
             Analytics.track("ad_skipping_interstitial")
             println("AD skipping interstitial")
             interstitialCurrent++
         }
     }
-    
-//    func showBanner(#targetView: UIView, frame: CGRect)
-//    {
-//        if bannerView != nil || !amIallowedToShowAds() || RevMobAds.session() == nil { return }
-//        bannerView = RevMobAds.session().bannerView()
-//        bannerView!.loadWithSuccessHandler({ (_) -> Void in
-//            self.bannerView!.frame = frame
-//            targetView.addSubview(self.bannerView!)
-//        }, andLoadFailHandler: { (_, error) -> Void in
-//            println("banner load error \(error)")
-//        }) { (bannerView) -> Void in
-//            println("banner clicked")
-//        }
-//    }
     
 }

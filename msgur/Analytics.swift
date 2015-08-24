@@ -10,13 +10,10 @@ import Foundation
 import Parse
 import FBSDKCoreKit
 
-class Analytics
-{
-    class func track(name: String, dimensions: [String: AnyObject?] = [:])
-    {
+class Analytics {
+    class func track(name: String, dimensions: [String: AnyObject?] = [:]) {
         var dims: [String: String] = [:]
-        for (dimStr, dimObj) in dimensions
-        {
+        for (dimStr, dimObj) in dimensions {
             if let obj: AnyObject = dimObj {
                 dims[dimStr] = "\(obj)"
             }
@@ -26,8 +23,7 @@ class Analytics
         FBSDKAppEvents.logEvent(name, parameters: dims)
     }
     
-    class func trackAchievement(#desc: String)
-    {
+    class func trackAchievement(#desc: String) {
         println("TRACK ACHIEVEMENT \(desc)")
         FBSDKAppEvents.logEvent(FBSDKAppEventNameUnlockedAchievement, parameters: [FBSDKAppEventParameterNameDescription: desc])
     }

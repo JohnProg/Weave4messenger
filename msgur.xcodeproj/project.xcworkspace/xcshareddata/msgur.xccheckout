@@ -14,22 +14,26 @@
 		<string>https://bitbucket.org/rszew/msgur.git</string>
 		<key>6094D9F4198D56F78EB1B455EC894F8A44DC0039</key>
 		<string>https://github.com/UrbanApps/Armchair.git</string>
+		<key>BD0647CAD4CC50F2D8CABAC52FBE7B3FAF0DA9EA</key>
+		<string>https://github.com/rshev/Weave4messenger.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>msgur.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>0A86E73DBFB7AC03F4EF8EE84CF6945A435BE109</key>
-		<string>../..</string>
+		<string>../../../msgur</string>
 		<key>6094D9F4198D56F78EB1B455EC894F8A44DC0039</key>
-		<string>../../Armchair</string>
+		<string>../../../msgur/Armchair</string>
+		<key>BD0647CAD4CC50F2D8CABAC52FBE7B3FAF0DA9EA</key>
+		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://bitbucket.org/rszew/msgur.git</string>
+	<string>https://github.com/rshev/Weave4messenger.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>0A86E73DBFB7AC03F4EF8EE84CF6945A435BE109</string>
+	<string>BD0647CAD4CC50F2D8CABAC52FBE7B3FAF0DA9EA</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
@@ -47,6 +51,14 @@
 			<string>0A86E73DBFB7AC03F4EF8EE84CF6945A435BE109</string>
 			<key>IDESourceControlWCCName</key>
 			<string>msgur</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>BD0647CAD4CC50F2D8CABAC52FBE7B3FAF0DA9EA</string>
+			<key>IDESourceControlWCCName</key>
+			<string>msgur_github</string>
 		</dict>
 	</array>
 </dict>

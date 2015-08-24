@@ -37,10 +37,8 @@ extension UIDevice {
     }
 }
 
-extension UIScreen
-{
-    func isSmallScreen() -> Bool
-    {
+extension UIScreen {
+    func isSmallScreen() -> Bool {
         return self.bounds.height <= 480
     }
     
