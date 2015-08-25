@@ -17,7 +17,7 @@ Developed using `Swift 1.2`
 - Facebook Messenger integration with Compose/Reply flows, plus custom context time interval
 - Autolayout with autosizing of all buttons ranging from 4[S] to 6 Plus
 - `CanvasView`:
-  - Smooth drawing using `CAShapeLayer`s with sequental caching using `NSOperation` with serial `NSOperationQueue` to improve performance and get rid of too many `CALayer`s
+  - Smooth drawing using `CAShapeLayer`s with sequental caching using `NSOperation` with a serial `NSOperationQueue` to improve performance and get rid of too many `CALayer`s on the screen simultaneously
   - Drawn line animated from a different color and line width
   - self-dissolving serial animation of the whole sequence of `CAShapeLayer`s on the user's drawing timeout
 - Video player with skipping of the first frame
